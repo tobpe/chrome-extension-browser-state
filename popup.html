@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="browser_state.js"></script>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <button onclick="saveTabs()">save</button>
+        <button onclick="restoreTabs()">restore</button>
+      </div>
+      <div id="content"></div>
+    </div>
+    <script type="text/javascript">
+(function() {
+  initView();
+})();
+
+
+function initView() {
+  document.getElementById("content").innerHTML = null;
+
+  getStates(function(rs) {
+    var rows = rs.rows;
+
+    for (var i = 0;i < rows.length;i++) {
+      var row = rows.item(i);
+
+      appendURLView(row.title,row.url);
+    }
+  });
+}
+
+function appendURLView(title,url) {
+  var elm_div = document.createElement("div");
+  var elm_a = document.createElement("a");
+  elm_a.href = url;
+  elm_a.target = "_blank";
+  elm_a.innerText = title;
+
+  elm_div.appendChild(elm_a);
+
+  document.getElementById("content").appendChild(elm_div);
+}
+    </script>
+  </body>
+</html>

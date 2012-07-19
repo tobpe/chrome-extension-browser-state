@@ -1,0 +1,14 @@
+{
+  "name": "Browser State",
+  "version": "0.1",
+  "description": "Browser Tab State save and restore",
+  "browser_action": {
+    "default_icon": "icon_red.png",
+    "default_title": "Browser State",
+    "popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["browser_state.js", "background.js"]
+  },
+  "permissions": ["tabs", "notifications"]
+}

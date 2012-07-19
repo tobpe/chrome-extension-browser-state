@@ -1,0 +1,16 @@
+html {
+  min-width: 300px;
+}
+
+body {
+  margin: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  margin: 5px 0px;
+}
+
+#content > div > a {
+  font-size: 12px;
+}
